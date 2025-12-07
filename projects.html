@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="author" content="" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" type="image/png" href="./images/favicon.png" />
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./images/favicon.png" />
     <title>CSE 134B Homework 2 Website</title>
     <script>
         console.log("Placeholder for now (ex. Analytics)")
@@ -36,90 +36,88 @@
     </header>
 
     <main id="main-content">
+        <!-- Header -->
         <h2><u>Projects</u></h2>
-        <section class="page-info">
-            <h3><em>Climate Pattern Prediction</em></h3>
-            <section class="content-row">
-                <picture id="project-image">
-                    <!-- Icon from: https://www.flaticon.com/free-icon/weather-forecast_6368753 -->
+
+        <!-- Projects Container (flexbox for cards) -->
+        <section class="projects-container">
+            <!-- Project Card 1: Climate Pattern Prediction -->
+            <project-card>
+                <h3>Climate Pattern Prediction</h3>
+                <picture>
                     <source srcset="./images/climateProject.avif" type="image/avif">
                     <source srcset="./images/climateProject.webp" type="image/webp">
-                    <img id="project-image" src="./images/climateProject.png" alt="Climate Project Screenshot">
+                    <img src="./images/climateProject.png" alt="Climate Project Screenshot">
                 </picture>
-                <ul id="project-text">
-                    <li>
-                        Placed <b>top 25%</b> in Kaggle competition (score: 0.9398) by developing and fine-tuning a <b>U-Net with attention</b> for spatiotemporal climate prediction
-                    </li> 
-                    <li>
-                        Benchmarked performance across multiple architectures, including baseline <b>CNNs, DenseNet, ResNet, and U-Net variants</b>, optimizing model accuracy and generalization
-                    </li> 
-                    <li>
-                        Visualized spatial loss maps and attention weights to identify high-error regions and inform iterative design refinements
-                    </li>
-                </ul>
+                <p>
+                    Placed <b>top 25%</b> in Kaggle competition (score: 0.9398) by developing and fine-tuning a <b>U-Net with attention</b> for spatiotemporal climate prediction.
+                </p>
+                <p>
+                    Benchmarked performance across multiple architectures, including baseline <b>CNNs, DenseNet, ResNet, and U-Net variants</b>, optimizing model accuracy and generalization.
+                </p>
+                <p>
+                    Visualized spatial loss maps and attention weights to identify high-error regions and inform iterative design refinements.
+                </p>
                 <a href="https://github.com/satvikak/CSE151B-Competition-Code">
-                <picture id="project-image">
-                    <!-- Icon from: https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg -->
-                    <source srcset="./images/github.avif" type="image/avif">
-                    <source srcset="./images/github.webp" type="image/webp">
-                    <img id="github-icon" src="./images/github.png"> 
-                </picture>
-                </a>              
-            </section>
-        </section>
-        <section class="page-info">
-            <h3><em>Green Lens - AI Climate Argument Retrieval Engine</em></h3>
-            <section class="content-row">
-                <picture id="project-image">
-                    <!-- Icon from: https://www.vecteezy.com/vector-art/47049823-icon-of-scientific-paper-representing-research-on-climate-change-and-global-warming -->
+                    <img src="./images/github.png" alt="GitHub">
+                </a>
+            </project-card>
+
+            <!-- Project Card 2: Green Lens - AI Climate Argument Retrieval Engine -->
+            <project-card>
+                <h3>Green Lens - AI Climate Argument Retrieval Engine</h3>
+                <picture>
                     <source srcset="./images/paperRetrieval.avif" type="image/avif">
                     <source srcset="./images/paperRetrieval.webp" type="image/webp">
-                    <img id="project-image" src="./images/paperRetrieval.png">
+                    <img src="./images/paperRetrieval.png" alt="Research Paper Screenshot">
                 </picture>
-                <ul id="project-text">
-                    <li>Collaborated in team of 4 to design and deploy a real-time system for retrieving peer-reviewed climate science articles based on user arguments, using <b>FastAPI, Streamlit, and OpenAI's GraphRAG architecture</b></li> 
-                    <li>Engineered high-performance retrieval pipeline using <b>BERT+FAISS, BM25, and TF-IDF</b>, achieving a top relevance score of 0.78 with query latency under 7 seconds</li>
-                    <li>Automated citation generation and structured evidence summarization to improve transparency and scalability</li>
-                </ul>
+                <p>
+                    Collaborated in team of 4 to design and deploy a real-time system for retrieving peer-reviewed climate science articles based on user arguments, using <b>FastAPI, Streamlit, and OpenAI's GraphRAG architecture</b>.
+                </p>
+                <p>
+                    Engineered high-performance retrieval pipeline using <b>BERT+FAISS, BM25, and TF-IDF</b>, achieving a top relevance score of 0.78 with query latency under 7 seconds.
+                </p>
+                <p>
+                    Automated citation generation and structured evidence summarization to improve transparency and scalability.
+                </p>
                 <a href="https://github.com/satvikak/CSE151B-Competition-Code">
-                    <picture id="project-image">
-                        <!-- Icon from: https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg -->
-                        <source srcset="./images/github.avif" type="image/avif">
-                        <source srcset="./images/github.webp" type="image/webp">
-                        <img id="github-icon" src="./images/github.png"> 
-                    </picture>
+                    <img src="./images/github.png" alt="GitHub">
                 </a>
-            </section>
-        </section>
-        <section class="page-info">
-            <h3><em>Restaurant Simulator</em></h3>
-            <section class="content-row">
-                <picture id="project-image">
-                    <!-- Icon from: https://www.freepik.com/icon/restaurant_9638472 -->
+            </project-card>
+
+            <!-- Project Card 3: Restaurant Simulator -->
+            <project-card>
+                <h3>Restaurant Simulator</h3>
+                <picture>
                     <source srcset="./images/restaurant.avif" type="image/avif">
                     <source srcset="./images/restaurant.webp" type="image/webp">
-                    <img id="project-image" src="./images/restaurant.png">
+                    <img src="./images/restaurant.png" alt="Restaurant Simulator Screenshot">
                 </picture>
-                <ul id="project-text">
-                    <li>Collaborated with a team of 4 and developed a fully functional restaurant simulator using C++</li>
-                    <li>Utilized <b>Agile methodology and object oriented design</b> for components including tables, order items, and servers</li>
-                    <li>Wrote <b>40+ unit tests</b> via GoogleTest to ensure code's robustness with 100% code coverage</li>
-                    <li>Acted as a developer and <b>scrum master</b>, responsible for encouraging effective team communication and cohesiveness of different modules</li>
-                </ul>
+                <p>
+                    Collaborated with a team of 4 and developed a fully functional restaurant simulator using C++.
+                </p>
+                <p>
+                    Utilized <b>Agile methodology and object oriented design</b> for components including tables, order items, and servers.
+                </p>
+                <p>
+                    Wrote <b>40+ unit tests</b> via GoogleTest to ensure code's robustness with 100% code coverage.
+                </p>
+                <p>
+                    Acted as a developer and <b>scrum master</b>, responsible for encouraging effective team communication and cohesiveness of different modules.
+                </p>
                 <a href="https://github.com/satvikak/CSE151B-Competition-Code">
-                    <picture id="project-image">
-                        <!-- Icon from: https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg -->
-                        <source srcset="./images/github.avif" type="image/avif">
-                        <source srcset="./images/github.webp" type="image/webp">
-                        <img id="github-icon" src="./images/github.png"> 
-                    </picture>
+                    <img src="./images/github.png" alt="GitHub">
                 </a>
-            </section>
-        </section>
+            </project-card>
+        </section> <!-- End of projects-container -->
     </main>
+
 
     <footer>
         Site made with ❤️ by Satvi
     </footer>
+
     <script src="./script.js"></script>
 </body>
+
+</html>

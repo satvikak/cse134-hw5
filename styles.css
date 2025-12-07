@@ -138,10 +138,69 @@ nav a:hover {
     width: auto;
 }
 
-#github-icon {
-    width: 50%;
+main#main-content {
+    padding: 2rem;
+}
+
+/* Projects Container (flexbox for cards) */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;               /* Allow cards to wrap to the next row when needed */
+    justify-content: space-around; /* Distribute space evenly between the cards */
+    gap: 2rem;                     /* Add space between the cards */
+}
+
+/* Project Card Styling */
+project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--main-bubble-color);
+    border-radius: var(--bubble-curvature);
+    padding: 2rem;
+    margin: 2rem;
+    max-width: 400px;             /* Set a maximum width for the cards */
+    width: 100%;                  /* Make sure the cards take up 100% of their container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+project-card h3 {
+    font-size: 1.5rem;
+    color: white;
+    background-color: var(--subsection-title-color);
+    padding: 0.3em 0.8em;
+    border-radius: var(--bubble-curvature);
+    margin-bottom: 1rem;
+}
+
+project-card picture img {
+    max-width: 100%;
     height: auto;
+    border-radius: var(--bubble-curvature);
+    margin-bottom: 1rem;
+}
+
+project-card p {
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background-color: var(--subsection-description-color);
+    padding: 1em;
+    border-radius: var(--bubble-curvature);
+}
+
+/* Link (GitHub) icon */
+project-card a {
+    display: inline-block;
     margin-top: 1rem;
+}
+
+project-card a img {
+    width: 40px;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
 .centered-items {
