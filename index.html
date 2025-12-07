@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="./images/favicon.png" />
+    <title>CSE 134B Homework 2 Website</title>
+    <script>
+        // Generative AI suggestion for making a HelloWorld custom element
+        class HelloWorld extends HTMLElement {
+            constructor() {
+            super();
+            // Print a message when the element is created
+            console.log("Hello World!");
+            }
+        }
+
+        // Register the custom element
+        customElements.define("hello-world", HelloWorld);    
+    </script>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <button id="changeTheme">☀️</button>
+    <noscript>
+        <p>Javascript is disabled!</p>
+    </noscript>
+    <header>
+        <h1>Satvi's Personal Portfolio</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./resume.html">Resume</a>
+            <a href="./craftBlog.html">Craft Blog</a>
+            <a href="./photography.html">Photography</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./form-no-js.html">No JS Contact Form</a>
+            <a href="./form-with-js.html">JS Contact Form</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <div>
+            <h2>Homepage</h2>
+
+            <section class="page-info">
+                <p>Hello and welcome to my website! Feel free to use the links above to navigate through my site 🙂</p>
+                <section class="centered-items">
+                    <figure>
+                        <picture>
+                            <source srcset="./images/Satvi.avif" type="image/avif" media="(min-width: 480px)">
+                            <source srcset="./images/Satvi.webp" type="image/webp" media="(min-width: 480px)">
+                            <img src="./images/Satvi.jpeg" alt="Satvi's Profile Pic" media="(max-width: 479px)">
+                        </picture>
+                        <figcaption> Satvi Kammula </figcaption>
+                    </figure>
+                </section>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        Site made with ❤️ by Satvi
+    </footer>
+    <script src="./script.js"></script>
+</body>

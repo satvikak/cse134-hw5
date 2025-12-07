@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="./images/favicon.png" />
+    <title>CSE 134B Homework 2 Website</title>
+    <script>
+        console.log("Placeholder for now (ex. Analytics)")
+    </script>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <button id="changeTheme">☀️</button>
+    <noscript>
+        <p>Javascript is disabled!</p>
+    </noscript>
+    <header>
+        <h1>Satvi's Personal Portfolio</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./resume.html">Resume</a>
+            <a href="./craftBlog.html">Craft Blog</a>
+            <a href="./photography.html">Photography</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./form-no-js.html">No JS Contact Form</a>
+            <a href="./form-with-js.html">JS Contact Form</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2><u>Craft Blog</u></h2>
+        <section class="page-info">
+            <ol>
+                <li>
+                    <article>
+                        <h3><i>Shark Painting</i></h3>
+                        <p>Posted on October 19, 2025</p>
+                        <section class="centered-items">
+                            <picture>
+                                <source srcset="./images/SharkPainting.avif" type="image/avif" media="(min-width: 480px)">
+                                <source srcset="./images/SharkPainting.webp" type="image/webp" media="(min-width: 480px)">
+                                <img src="./images/SharkPainting.jpg" alt="Shark Painting" media="(max-width: 479px)">
+                            </picture>                            
+                        </section>
+                        <p>
+                            The above image represents a painting I made during my freshman year of college. I attempted to copy the Jaws poster, though it didn't turn out as good as I hoped. But, this memory is dear to me because it represents good times with my friends from high school. It showed us that even though we were miles apart and didn't talk as often, we'd still always be close.
+                        </p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h3><i>DIY Terrarium</i></h3>
+                        <p>Posted on October 20, 2025</p>
+                        <section class="centered-items">
+                            <picture>
+                                <source srcset="./images/TerrariumDIY.avif" type="image/avif" media="(min-width: 480px)">
+                                <source srcset="./images/TerrariumDIY.webp" type="image/webp" media="(min-width: 480px)">
+                                <img src="./images/TerrariumDIY.jpg" alt="DIY Terrarium" media="(max-width: 479px)">
+                            </picture>  
+                        </section>
+                        <p>The above image represents a DIY terrarium I made at The Zone with my roommates. Again, it isn't particularly artistic in its entirety, but it has a lot of beautiful components combined together. Furthermore, this was such a great memory for me and my roommates, since we had such a great time just relaxing and making art together.</p>
+                    </article>
+                </li>
+                <li>
+                    <article>
+                        <h3><i>Digital Art</i></h3>
+                        <p>Posted on October 20, 2025</p>
+                        <section class="centered-items">
+                            <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,10 90,50 50,90 10,50" fill="gold" stroke="black" stroke-width="3"/>
+                            </svg>                        
+                        </section>    
+                        <p>The SVG image above represents a really simple diagram of my first trial with SVG. I plan to learn more about SVG's attributes, so I can make more intricate SVG art and designs in the future.</p>
+                    </article>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        Site made with ❤️ by Satvi
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>

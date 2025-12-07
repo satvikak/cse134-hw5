@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="./images/favicon.png" />
+    <title>CSE 134B Homework 2 Website</title>
+    <script>
+        console.log("Placeholder for now (ex. Analytics)")
+    </script>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <button id="changeTheme">☀️</button>
+    <noscript>
+        <p>Javascript is disabled!</p>
+    </noscript>
+    <header>
+        <h1>Satvi's Personal Portfolio</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./resume.html">Resume</a>
+            <a href="./craftBlog.html">Craft Blog</a>
+            <a href="./photography.html">Photography</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./form-no-js.html">No JS Contact Form</a>
+            <a href="./form-with-js.html">JS Contact Form</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2><u>Experiment</u></h2>
+        <h3><i>Template Tag:</i></h3>
+        <ul>
+            <li>
+                <template id="random-template">
+                    <h4>Hidden Template Contents</h4>
+                    <p>The template contents written here should not appear on the page</p>
+                </template>
+            </li>
+        </ul>   
+        <h3><i>Picture Tag:</i></h3>
+        <ul>
+            <li>
+                <p>Here is an image that adapts according to screen size</p>
+                <picture>
+                    <source srcset="./images/HighResFlower.png" media="(min-width: 600px)" width="200">
+                    <source srcset="./images/LowResFlower.png" media="(max-width: 599px)">
+                    <!-- Fallback!! -->
+                    <img src="./images/LowResFlower.png" alt="Responsive Flower Image">
+                </picture>
+        </ul>
+        <h3><i>Audio with Source Tag:</i></h3>
+        <ul>
+            <li>
+                <p>Can you hear the dog bark?</p>
+                <audio controls>
+                    <source src="./media/dogBark.mp3" type="audio/mp3">
+                    Your browser doesn't support audio!
+                </audio>
+            </li>
+        </ul>
+        <h3><i>Video with Source Tag:</i></h3>
+        <ul>
+            <li>
+                <p>Can you see the dog run?</p>
+                <video controls width="300" muted>
+                    <source src="./media/dogRunning.mp4" type="video/mp4">
+                    Your browser doesn't support video!
+                </video>
+            </li>
+        </ul>
+        <h3><i>Canvas:</i></h3>
+        <ul>
+            <li>
+                <p>Can you see the gold circle?</p>
+                <canvas id="circle" width="200" height="200" style="border:1px solid #000000;"></canvas>
+                <script>
+                    var canvas = document.getElementById("circle");
+                    var ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "gold"; 
+                    ctx.strokeStyle = "black";
+                    ctx.lineWidth = 3;
+                    ctx.beginPath();
+                    ctx.arc(100, 100, 50, 0, 2 * Math.PI);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
+            </li>
+        </ul>
+        <h3><i>Extra Credit:</i></h3>
+        <ul>
+            <li>
+                <math xmlns="http://www.w3.org/1998/Math/MathML">
+                    <msup>
+                        <mi>E</mi>
+                    </msup>
+                    <mo>=</mo>
+                    <mi>m</mi>
+                    <msup>
+                        <mi>c</mi>
+                        <mn>2</mn>
+                    </msup>
+                </math>
+            </li>
+        </ul>
+    </main>
+
+    <footer>
+        Site made with ❤️ by Satvi
+    </footer>
+    <script src="./script.js"></script>
+</body>

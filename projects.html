@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="./images/favicon.png" />
+    <title>CSE 134B Homework 2 Website</title>
+    <script>
+        console.log("Placeholder for now (ex. Analytics)")
+    </script>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <button id="changeTheme">☀️</button>
+    <noscript>
+        <p>Javascript is disabled!</p>
+    </noscript>
+    <header>
+        <h1>Satvi's Personal Portfolio</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./resume.html">Resume</a>
+            <a href="./craftBlog.html">Craft Blog</a>
+            <a href="./photography.html">Photography</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./form-no-js.html">No JS Contact Form</a>
+            <a href="./form-with-js.html">JS Contact Form</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2><u>Projects</u></h2>
+        <section class="page-info">
+            <h3><em>Climate Pattern Prediction</em></h3>
+            <section class="content-row">
+                <picture id="project-image">
+                    <!-- Icon from: https://www.flaticon.com/free-icon/weather-forecast_6368753 -->
+                    <source srcset="./images/climateProject.avif" type="image/avif">
+                    <source srcset="./images/climateProject.webp" type="image/webp">
+                    <img id="project-image" src="./images/climateProject.png" alt="Climate Project Screenshot">
+                </picture>
+                <ul id="project-text">
+                    <li>
+                        Placed <b>top 25%</b> in Kaggle competition (score: 0.9398) by developing and fine-tuning a <b>U-Net with attention</b> for spatiotemporal climate prediction
+                    </li> 
+                    <li>
+                        Benchmarked performance across multiple architectures, including baseline <b>CNNs, DenseNet, ResNet, and U-Net variants</b>, optimizing model accuracy and generalization
+                    </li> 
+                    <li>
+                        Visualized spatial loss maps and attention weights to identify high-error regions and inform iterative design refinements
+                    </li>
+                </ul>
+                <a href="https://github.com/satvikak/CSE151B-Competition-Code">
+                <picture id="project-image">
+                    <!-- Icon from: https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg -->
+                    <source srcset="./images/github.avif" type="image/avif">
+                    <source srcset="./images/github.webp" type="image/webp">
+                    <img id="github-icon" src="./images/github.png"> 
+                </picture>
+                </a>              
+            </section>
+        </section>
+        <section class="page-info">
+            <h3><em>Green Lens - AI Climate Argument Retrieval Engine</em></h3>
+            <section class="content-row">
+                <picture id="project-image">
+                    <!-- Icon from: https://www.vecteezy.com/vector-art/47049823-icon-of-scientific-paper-representing-research-on-climate-change-and-global-warming -->
+                    <source srcset="./images/paperRetrieval.avif" type="image/avif">
+                    <source srcset="./images/paperRetrieval.webp" type="image/webp">
+                    <img id="project-image" src="./images/paperRetrieval.png">
+                </picture>
+                <ul id="project-text">
+                    <li>Collaborated in team of 4 to design and deploy a real-time system for retrieving peer-reviewed climate science articles based on user arguments, using <b>FastAPI, Streamlit, and OpenAI's GraphRAG architecture</b></li> 
+                    <li>Engineered high-performance retrieval pipeline using <b>BERT+FAISS, BM25, and TF-IDF</b>, achieving a top relevance score of 0.78 with query latency under 7 seconds</li>
+                    <li>Automated citation generation and structured evidence summarization to improve transparency and scalability</li>
+                </ul>
+                <a href="https://github.com/satvikak/CSE151B-Competition-Code">
+                    <picture id="project-image">
+                        <!-- Icon from: https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg -->
+                        <source srcset="./images/github.avif" type="image/avif">
+                        <source srcset="./images/github.webp" type="image/webp">
+                        <img id="github-icon" src="./images/github.png"> 
+                    </picture>
+                </a>
+            </section>
+        </section>
+        <section class="page-info">
+            <h3><em>Restaurant Simulator</em></h3>
+            <section class="content-row">
+                <picture id="project-image">
+                    <!-- Icon from: https://www.freepik.com/icon/restaurant_9638472 -->
+                    <source srcset="./images/restaurant.avif" type="image/avif">
+                    <source srcset="./images/restaurant.webp" type="image/webp">
+                    <img id="project-image" src="./images/restaurant.png">
+                </picture>
+                <ul id="project-text">
+                    <li>Collaborated with a team of 4 and developed a fully functional restaurant simulator using C++</li>
+                    <li>Utilized <b>Agile methodology and object oriented design</b> for components including tables, order items, and servers</li>
+                    <li>Wrote <b>40+ unit tests</b> via GoogleTest to ensure code's robustness with 100% code coverage</li>
+                    <li>Acted as a developer and <b>scrum master</b>, responsible for encouraging effective team communication and cohesiveness of different modules</li>
+                </ul>
+                <a href="https://github.com/satvikak/CSE151B-Competition-Code">
+                    <picture id="project-image">
+                        <!-- Icon from: https://commons.wikimedia.org/wiki/File:Octicons-mark-github.svg -->
+                        <source srcset="./images/github.avif" type="image/avif">
+                        <source srcset="./images/github.webp" type="image/webp">
+                        <img id="github-icon" src="./images/github.png"> 
+                    </picture>
+                </a>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        Site made with ❤️ by Satvi
+    </footer>
+    <script src="./script.js"></script>
+</body>

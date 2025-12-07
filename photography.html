@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="./images/favicon.png" />
+    <title>CSE 134B Homework 2 Website</title>
+    <script>
+        console.log("Placeholder for now (ex. Analytics)")
+    </script>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <button id="changeTheme">☀️</button>
+    <noscript>
+        <p>Javascript is disabled!</p>
+    </noscript>
+    <header>
+        <h1>Satvi's Personal Portfolio</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./resume.html">Resume</a>
+            <a href="./craftBlog.html">Craft Blog</a>
+            <a href="./photography.html">Photography</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./form-no-js.html">No JS Contact Form</a>
+            <a href="./form-with-js.html">JS Contact Form</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2><u>Photography</u></h2>
+        <section class="img-gallery">
+            <section class="page-info">
+                <figure>
+                    <picture>
+                        <source srcset="./images/london.avif" type="image/avif" media="(min-width: 480px)">
+                        <source srcset="./images/london.webp" type="image/webp" media="(min-width: 480px)">
+                        <img src="./images/london.JPG" alt="London Image" media="(max-width: 479px)">
+                    </picture>  
+                    <figcaption>Big Ben in London</figcaption>
+                </figure>
+            </section>
+            <section class="page-info">
+                <figure>
+                    <picture>
+                        <source srcset="./images/beach.avif" type="image/avif" media="(min-width: 480px)">
+                        <source srcset="./images/beach.webp" type="image/webp" media="(min-width: 480px)">
+                        <img src="./images/beach.JPG" alt="Beach Image" media="(max-width: 479px)">
+                    </picture> 
+                    <figcaption>Beach by La Jolla Trail</figcaption>
+                </figure>
+            </section>
+            <section class="page-info">
+                <figure>
+                    <picture>
+                        <source srcset="./images/balboa.avif" type="image/avif" media="(min-width: 480px)">
+                        <source srcset="./images/balboa.webp" type="image/webp" media="(min-width: 480px)">
+                        <img src="./images/balboa.JPG" alt="Balboa Image" media="(max-width: 479px)">
+                    </picture> 
+                    <figcaption>Balboa Park</figcaption>
+                </figure>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        Site made with ❤️ by Satvi
+    </footer>
+    <script src="./script.js"></script>
+</body>

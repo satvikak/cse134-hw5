@@ -1,0 +1,474 @@
+:root {
+    --back-color: #E27E7E;
+    --main-bubble-color: #EA9E79;
+    --main-banner-color: #7E5072;
+    --page-title-color: #AB5A74;
+    --subsection-title-color: #DB5079;
+    --position-title-color: #C5365C;
+    --subsection-description-color: #C0607F;
+    --bubble-curvature: 2em;
+    --font-size: 1rem;
+    --small-font: 0.8rem;
+    --caption-margin: 0.8em;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--position-title-color, #C5365C) var(black, #EA9E79);
+}
+
+@supports (scrollbar-gutter: stable) {
+  html {
+    scrollbar-gutter: stable both-edges;
+  }
+}
+
+body {
+    font-family: 'Comfortaa', sans-serif;
+    background-color: var(--back-color, #E27E7E);
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-size: var(--font-size, 2rem);
+}
+
+h1 {
+    background-color: var(--main-banner-color, #7E5072); 
+    padding: 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    background-color: var(--page-title-color, #AB5A74); 
+    padding: 1.5rem;
+    text-align: center;
+}
+
+h3 {
+    display: inline-block;
+    background-color: var(--subsection-title-color,#DB5079);
+    color: white; 
+    padding: 0.3em 0.8em;
+    border-radius: var(--bubble-curvature, 1rem); 
+    margin: 0.5em auto;
+}
+
+h4 {
+    background-color: var(--position-title-color, #C5365C);
+    color: white; 
+    padding: 0.3em 0.8em;
+    border-radius: var(--bubble-curvature, 1rem); 
+    margin: 0.5em 0;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+nav a {
+    display: inline-block;
+    background-color: var(--main-bubble-color, #EA9E79);
+    color: white;
+    padding: 0.6em 1.2em;
+    border-radius: var(--bubble-curvature, 1rem); 
+    /* Idea utilized from here: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions" */
+    transition: all 0.5s ease-out;
+}
+
+nav a:hover {
+    background-color: var(--position-title-color, #C5365C);
+    /* Idea utilized from here: "https://stackoverflow.com/questions/31860157/css3-transform-translate-on-hover-with-transition" */
+    transform: translateY(2px);
+}
+
+/* Idea utilized from here: https://blog.hubspot.com/website/css-fade-in */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.page-info {
+    background-color: var(--main-bubble-color,#EA9E79);   
+    border-radius: var(--bubble-curvature, 1rem); 
+    padding: 2rem;               
+    margin: 2rem auto;           
+    max-width: 70dvw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s;
+
+    ul {
+        background-color: var(--subsection-description-color, #C0607F); 
+        padding: 1em 1.5em; 
+        border-radius: var(--bubble-curvature, 1rem); 
+        list-style-position: inside;  
+        width: 90%;
+
+        li {
+            margin-bottom: 0.9rem;
+            list-style-position: outside;
+        }
+    }
+
+    p {
+        background-color: var(--subsection-description-color, #C0607F); 
+        padding: 1em 1.5em;
+        border-radius: var(--bubble-curvature, 1rem); 
+        text-align: center;
+    }
+}
+
+.content-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#project-image {
+    width: 95%;                
+    border-radius: var(--bubble-curvature, 1rem);
+    margin-top: 0.5rem;
+}
+
+#project-text {
+    width: auto;
+}
+
+#github-icon {
+    width: 50%;
+    height: auto;
+    margin-top: 1rem;
+}
+
+.centered-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+
+    img {
+        border-radius: var(--bubble-curvature, 1rem); 
+        height: 40dvh;
+        width: auto
+    }
+
+    figcaption {
+        font-size: var(--small-font, 0.9rem);
+        text-align: center;
+        margin-top: var(--caption-margin, 0.9em);
+    }
+}
+
+iframe {
+    display: block;
+    margin: 1rem auto;
+    width: 70dvw;
+    height: 80dvh;
+}
+
+.img-gallery {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;           
+
+    img {
+        border-radius: var(--bubble-curvature, 1rem); 
+        max-width: 45dvw;
+        height: 40dvh;
+    }
+
+    figcaption {
+        text-align: center;
+        font-size: var(--small-font);
+        margin-top: var(--caption-margin, 0.9em);
+    }
+}
+
+.contact-form fieldset {
+    display: grid;
+    gap: 0.3rem;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 0.5rem;
+    border: 1px solid;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.output {
+    font-size: 0.9rem;
+}
+
+.error {
+    color: red;
+    min-height: 1.2rem;
+    font-weight: bolder;
+}
+
+.info {
+    color: white;
+    min-height: 1.2rem;
+    font-weight: bolder;
+}
+
+input:required, textarea:required {
+    border-left:6px solid rgb(198, 26, 26);
+    background-color: rgb(248, 179, 179);
+}
+
+input:valid, textarea:valid {
+    border-left:6px solid #0a6531;
+    background-color: #97ccae;
+}
+
+input:user-invalid, textarea:user-invalid {
+    border-left: 6px solid rgb(198, 26, 26);
+    background-color: #e77575;
+}
+
+button {
+    background-color: var(--position-title-color, #C5365C);
+    color: white;
+    padding: 0.6em 1.2em;
+    border: none;
+    border-radius: var(--bubble-curvature, 1rem); 
+    font-size: 1rem;
+    font-family:'Comfortaa', sans-serif; 
+}
+
+.normal-limit {
+    background-color: #97ccae;
+}
+
+.warning-limit {
+    background-color: rgb(255, 106, 0);
+}
+
+.error-limit {
+    background-color: #df3e3e;
+}
+
+.flash {
+    animation: flash-border 0.3s linear 4;
+}
+
+@keyframes flash-border {
+    0%   { box-shadow: 0 0 6px 3px red; }
+    50%  { box-shadow: none; }
+    100% { box-shadow: 0 0 6px 3px red; }
+}
+
+footer {
+  text-align: center;
+  font-size: var(--small-font, 0.9rem);
+  color: black; 
+  padding: 1rem 0 0 0;
+}
+
+@media (max-width: 480px) {
+    .page-info {
+
+        ul {
+            background-color: var(--subsection-description-color, #C0607F); 
+            padding: 1em 0.5em; 
+            border-radius: var(--bubble-curvature, 1rem); 
+            list-style-position: inside;  
+            width: 90%;
+
+            li {
+                margin-bottom: 0.9rem;
+                list-style-position: inside;
+            }
+        }
+        article {
+            margin-right: 1.5rem; 
+        }
+
+        p {
+            background-color: var(--subsection-description-color, #C0607F); 
+            padding: 1em 0.0em;
+            border-radius: var(--bubble-curvature, 1rem); 
+            text-align: center;
+        }
+
+        img {
+            width: 80dvw;
+            height: 45dvh;
+        }
+
+        fieldset, input, textarea, button {
+            width: 90%;
+        }
+    }
+
+    .content-row {
+        display: flex;
+        flex-direction: column;  
+        align-items: center;  
+        gap: 1rem;      
+    }
+
+    #project-image {
+        width: 80dvw;                
+        border-radius: var(--bubble-curvature, 1rem);
+        margin-top: 0.5rem;
+    }
+
+    #project-text {
+        width: 95%;
+    }
+
+    #github-icon {
+        width: 20%;
+        height: auto;
+        margin-top: 1rem;
+    }
+
+    iframe {
+        display: none;
+    }
+
+    .img-gallery {
+        display: flex;
+        justify-content: center; 
+        flex-wrap: wrap;           
+
+        img {
+            border-radius: var(--bubble-curvature, 1rem); 
+            max-width: 30em;
+            height: 20em;
+        }
+
+        figcaption {
+            text-align: center;
+            font-size: var(--small-font);
+            margin-top: var(--caption-margin, 0.9em);
+        }
+    }
+}
+
+body.darkMode {
+    --back-color: #0d0d0d;           
+    --main-bubble-color: #1a1a1a;      
+    --main-banner-color: #2b003b;     
+    --page-title-color: #3e005f;        
+    --subsection-title-color: #d16aff;   
+    --position-title-color: #209e9e; 
+    --subsection-description-color: #1c1c1c;
+    --font-color: #e0e0e0;       
+    --neon-glow: rgba(208, 106, 255, 0.6);
+}
+
+body.darkMode {
+    background-color: var(--back-color);
+    color: var(--font-color);
+    transition: all 0.5s ease;
+}
+
+body.darkMode h1, body.darkMode h2, body.darkMode h3, body.darkMode h4 {
+    color: var(--font-color);
+    text-shadow: 0 0 4px var(--neon-glow);
+    transition: all 0.3s ease-in-out;
+}
+
+body.darkMode h1 { background-color: var(--main-banner-color); }
+body.darkMode h2 { background-color: var(--page-title-color); }
+body.darkMode h3 { background-color: var(--subsection-title-color); }
+body.darkMode h4 { background-color: var(--position-title-color); }
+
+body.darkMode nav a {
+    background-color: var(--main-bubble-color);
+    color: var(--font-color);
+    box-shadow: 0 0 3px var(--neon-glow);
+    transition: all 0.3s ease;
+}
+body.darkMode nav a:hover {
+    background-color: var(--position-title-color);
+    box-shadow: 0 0 6px var(--position-title-color);
+    transform: translateY(-2px);
+}
+
+body.darkMode .page-info,
+body.darkMode .page-info ul,
+body.darkMode .page-info p {
+    background-color: var(--subsection-description-color);
+    box-shadow: 0 0 4px var(--neon-glow); 
+    transition: all 0.3s ease;
+}
+
+body.darkMode .contact-form input,
+body.darkMode .contact-form textarea {
+    background-color: #1a1a1a;
+    color: var(--font-color);
+    border: 1px solid #555;
+    transition: all 0.3s ease;
+}
+
+body.darkMode input:required,
+body.darkMode textarea:required {
+    border-left: 6px solid #d16aff;
+    background-color: #1f1f1f;
+}
+
+body.darkMode input:valid,
+body.darkMode textarea:valid {
+    border-left: 6px solid #66f0f0;
+    background-color: #1a1a1a;
+}
+
+body.darkMode button {
+    background-color: var(--position-title-color);
+    color: var(--font-color);
+    box-shadow: 0 0 3px var(--position-title-color);
+    transition: all 0.3s ease;
+}
+body.darkMode button:hover {
+    box-shadow: 0 0 6px var(--position-title-color);
+}
+
+body.darkMode .flash {
+    animation: neon-flash 0.5s linear 4;
+}
+
+@keyframes neon-flash {
+    0%, 100% { box-shadow: 0 0 3px 1px var(--neon-glow); }
+    50% { box-shadow: none; }
+}
+body.darkMode footer {
+    color: var(--font-color);
+    transition: all 0.5s ease;
+}
+
+/* We ensure view transitions our navigation */
+@view-transition {
+  navigation: auto;
+}
+
+/* We fade out when transitioning away */
+::view-transition-old(#main-content) {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+/* We fade in when transitioning in */
+::view-transition-new(#main-content) {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* We define fading out with a slight bounce */
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(10px); }
+}
+
+/* We define fadeIn with a slight bounce */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

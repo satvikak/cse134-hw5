@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="./images/favicon.png" />
+    <title>CSE 134B Homework 2 Website</title>
+    <script>
+        console.log("Placeholder for now (ex. Analytics)")
+    </script>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <button id="changeTheme">☀️</button>
+    <noscript>
+        <p>Javascript is disabled!</p>
+    </noscript>
+    <header>
+        <h1>Satvi's Personal Portfolio</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./resume.html">Resume</a>
+            <a href="./craftBlog.html">Craft Blog</a>
+            <a href="./photography.html">Photography</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./form-no-js.html">No JS Contact Form</a>
+            <a href="./form-with-js.html">JS Contact Form</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+
+        <h2><u>JS Form</u></h2>
+        <section class="page-info">
+            <h3><i>Quick Message:</i></h3>
+            <form id="contact-form" method="post" action="https://httpbin.org/post" class="contact-form" novalidate>
+                <fieldset>
+                    <legend> Shoot me a quick message here!</legend>
+                    
+                    <input type="hidden" name="form-errors" id="form-errors">
+
+                    <input type="hidden" name="possible_bot" value="true">
+                    
+                    <label for="name"><span style="color: rgb(198, 26, 26);">*</span>Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required minlength="2" maxlength="15" pattern="^[A-Za-zÀ-ž\s'\-]+$"> <br><br>
+
+                    <label for="email"><span style="color: rgb(198, 26, 26);">*</span>Your Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.]+\.[a-zA-Z]{2,}$"><br><br>
+                    
+                    <label for="subject"><span style="color: rgb(198, 26, 26);">*</span>Subject:</label>
+                    <input type="text" id="subject" name="subject" placeholder="What is this about?" required minlength="2" maxlength="50"><br><br>
+
+                    <label for="message"><span style="color: rgb(198, 26, 26);">*</span>Message:</label> <br>
+                    <textarea id="message" name="message" rows="4" cols="50" placeholder="Write your message here..." required minlength="2" maxlength="500"></textarea> <br> <br>
+                    <span id="countdown" class="info"></span>
+
+                    <output id="error-message" aria-live="polite" class="error"></output>
+                    <output id="info-message" aria-live="polite" class="info"></output>
+
+                    <button type="submit">Send Message</button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer>
+        Site made with ❤️ by Satvi
+    </footer>
+    <script src="./script.js"></script>
+</body>

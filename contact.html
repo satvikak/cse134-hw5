@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="author" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" href="./images/favicon.png" />
+        <title>CSE 134B Homework 2 Website</title>
+        <script>
+            console.log("Placeholder for now (ex. Analytics)")
+        </script>
+        <link rel="stylesheet" href="./styles.css" media="screen">
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+    </head>
+
+    <body>
+        <button id="changeTheme">☀️</button>
+        <noscript>
+            <p>Javascript is disabled!</p>
+        </noscript>
+    <header>
+        <h1>Satvi's Personal Portfolio</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./resume.html">Resume</a>
+            <a href="./craftBlog.html">Craft Blog</a>
+            <a href="./photography.html">Photography</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./form-no-js.html">No JS Contact Form</a>
+            <a href="./form-with-js.html">JS Contact Form</a>
+        </nav>
+    </header>
+
+        <main id="main-content">
+
+            <h2><u>Contact Me</u></h2>
+            <section class="page-info">
+                <h3><i>Email:</i></h3>
+                <p>sakammula@ucsd.edu</p>
+            </section>
+            <section class="page-info">
+                <h3><i>Phone Number:</i></h3>
+                <p>(805) 501-8751</p>
+            </section>
+            <section class="page-info">
+                <h3><i>Quick Message:</i></h3>
+                <form method="post" action="https://httpbin.org/post">
+                    <fieldset>
+                        <legend> Shoot me a quick message here!</legend>
+                        
+                        <input type="hidden" name="possible_bot" value="true">
+                        
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required> <br><br>
+
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required> <br> <br>
+                        
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is this about?"><br><br>
+
+                        <label for="message">Message:</label> <br>
+                        <textarea id="message" name="message" rows="4" cols="50" placeholder="Write your message here..." required></textarea> <br> <br>
+                        
+                        <button type="submit">Send Message</button>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            Site made with ❤️ by Satvi
+        </footer>
+        <script src="./script.js"></script>
+    </body>
+</html>

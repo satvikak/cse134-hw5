@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="./images/favicon.png" />
+    <title>CSE 134B Homework 2 Website</title>
+    <script>
+        console.log("Placeholder for now (ex. Analytics)")
+    </script>
+    <link rel="stylesheet" href="./styles.css" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <button id="changeTheme">☀️</button>
+    <noscript>
+        <p>Javascript is disabled!</p>
+    </noscript>
+    <header>
+        <h1>Satvi's Personal Portfolio</h1>
+        <nav>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About Me</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+            <a href="./resume.html">Resume</a>
+            <a href="./craftBlog.html">Craft Blog</a>
+            <a href="./photography.html">Photography</a>
+            <a href="./contact.html">Contact Me</a>
+            <a href="./form-no-js.html">No JS Contact Form</a>
+            <a href="./form-with-js.html">JS Contact Form</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <h2><u>About Me</u></h2>
+        
+        <section class="page-info">
+            <h3><em>At a Glance</em></h3>
+            <section class="content-row">
+                <picture id="project-image">
+                    <source srcset="./images/meOutside.avif" type="image/avif" media="(min-width: 480px)">
+                    <source srcset="./images/meOutside.webp" type="image/webp" media="(min-width: 480px)">
+                    <img id="project-image" src="./images/meOutside.jpg" alt="Satvi standing outdoors" media="(max-width: 479px)">
+                </picture>
+                <p id="project-text"> 
+                    Hi! I'm <strong>Satvi Kammula</strong>, an incoming 4th-year Computer Science student at <strong>UC San Diego</strong>. My journey at UCSD has been an exciting mix of learning, research, and building projects that push me to think creatively and critically.
+                </p>
+            </section>
+        </section>
+        <section class="page-info">
+            <h3><em>What I'm Passionate About</em></h3>
+            <section class="content-row">
+                <picture id="project-image">
+                    <!-- Icon from: https://www.flaticon.com/free-icon/ai_8618880 -->
+                    <source srcset="./images/aiIcon.avif" type="image/avif" media="(min-width: 480px)">
+                    <source srcset="./images/aiIcon.webp" type="image/webp" media="(min-width: 480px)">
+                    <img id="project-image" src="./images/aiIcon.png" alt="AI Icon png" media="(max-width: 479px)">                
+                </picture>
+                <p id="project-text">
+                    I'm deeply interested in <strong>artificial intelligence and machine learning</strong>, especially their applications in <strong>healthcare</strong>. I love exploring how technology can enhance medical imaging, streamline workflows, and support better diagnostic tools. Whether it's segmenting medical scans, experimenting with new model architectures, or analyzing real-world data, I enjoy bringing ideas to life through code and research.
+                </p>
+            </section>
+        </section>
+        <section class="page-info">
+            <h3><em>Beyond Tech</em></h3>
+            <section class="content-row">
+                <picture id="project-image">
+                    <!-- Icon from: https://www.flaticon.com/free-icon/craft_3079148 -->
+                    <source srcset="./images/craftingIcon.avif" type="image/avif" media="(min-width: 480px)">
+                    <source srcset="./images/craftingIcon.webp" type="image/webp" media="(min-width: 480px)">
+                    <img id="project-image" src="./images/craftingIcon.png" alt="Crafting Icon png" media="(max-width: 479px)">                
+                </picture>
+                <p id="project=text">
+                    Outside of computer science, I'm someone who loves creating things with my hands and my camera. I enjoy <strong>crafting</strong>, from small handmade projects to decor, and I have a growing passion for <strong>photography</strong>—capturing landscapes and moments the way I see them. These hobbies balance my technical work and let me express creativity in a different way.
+                </p>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        Site made with ❤️ by Satvi
+    </footer>
+    <script src="./script.js"></script>
+</body>
