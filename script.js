@@ -206,6 +206,108 @@ document.addEventListener('DOMContentLoaded', () => {
             changeThemeButton.textContent = body.classList.contains('darkMode') ? '🌙' : '☀️';
         });
     }
+
+    class ProjectCard extends HTMLElement {
+        constructor() {
+            super();
+            // Attach shadow DOM to isolate styles
+            const shadow = this.attachShadow({ mode: 'open' });
+
+            // Define template for the project card
+            const template = `
+                <style>
+                    :host {
+                        --back-color: #E27E7E;
+                        --main-bubble-color: #EA9E79;
+                        --main-banner-color: #7E5072;
+                        --page-title-color: #AB5A74;
+                        --subsection-title-color: #DB5079;
+                        --position-title-color: #C5365C;
+                        --subsection-description-color: #C0607F;
+                        --bubble-curvature: 2em;
+                        --font-size: 1rem;
+                        --small-font: 0.8rem;
+                        --caption-margin: 0.8em;
+                    }
+
+                    .project-card h3 {
+                        font-size: 1.5rem;
+                        color: white;
+                        background-color: var(--subsection-title-color);
+                        padding: 0.3em 0.8em;
+                        border-radius: var(--bubble-curvature);
+                        margin-bottom: 1rem;
+                    }
+
+                    /* img Styling */
+                    .project-card picture img {
+                        max-width: 100%;
+                        height: auto;
+                        border-radius: var(--bubble-curvature);
+                        margin-bottom: 1rem;
+                    }
+
+                    /* p Styling */
+                    .project-card p {
+                        color: white;
+                        font-size: 1rem;
+                        margin-bottom: 1rem;
+                        background-color: var(--subsection-description-color);
+                        padding: 1em;
+                        border-radius: var(--bubble-curvature);
+                        line-height: 1.6;
+                    }
+
+                    /* Link Styling */
+                    .project-card a {
+                        display: inline-block;
+                        margin-top: 1rem;
+                    }
+
+                    .project-card a img {
+                        width: 40px;
+                        height: auto;
+                        transition: transform 0.3s ease;
+                    }
+
+                    /* Details Styling */
+                    details {
+                        margin-top: 1rem;
+                    }
+
+                    summary {
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        cursor: pointer;
+                        color: white;
+                        padding: 0.5em;
+                    }
+                </style>
+
+                <div class="project-card">
+                    <h3>${this.getAttribute('title') || 'Default Title'}</h3>
+                    <picture>
+                        <source srcset="${(this.getAttribute('img-src') || './images/default.jpg').replace('.png', '.avif')}" type="image/avif">
+                        <source srcset="${(this.getAttribute('img-src') || './images/default.jpg').replace('.png', '.webp')}" type="image/webp">
+                        <img src="${this.getAttribute('img-src') || './images/default.jpg'}" alt="${this.getAttribute('title') || 'Project Title'} Screenshot">
+                    </picture>
+                    <details>
+                        <summary>Project Description</summary>
+                        <p>${this.getAttribute('description') || 'No description provided.'}</p>
+                    </details>
+                    <a href="${this.getAttribute('github-link') || '#'}" target="_blank">
+                        <img src="./images/github.png" alt="GitHub">
+                    </a>
+                </div>
+            `;
+
+            // Attach the template to the shadow DOM
+            shadow.innerHTML = template;
+        }
+    }
+
+    // Define the custom element
+    customElements.define('my-project', ProjectCard);
 });
 
 
