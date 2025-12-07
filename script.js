@@ -207,6 +207,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.getElementById('load-local').addEventListener('click', loadLocalData);
+
+    function loadLocalData() {
+        console.log('Loading local data...');
+        const projects = JSON.parse(localStorage.getItem('projectsData'));
+        console.log(projects); // Log to check if the data is correct before passing to displayProjects()
+        if (projects) {
+            displayProjects(projects);
+        } else {
+            alert('No project data found in localStorage.');
+        }
+    }
+
+    function displayProjects(projects) {
+        const container = document.querySelector('.projects-container');
+        container.innerHTML = ''; // Clear any existing content
+
+        projects.forEach(project => {
+            const projectCard = document.createElement('my-project');
+            projectCard.setAttribute('title', project.title || 'Default Title');
+            projectCard.setAttribute('description', project.body || 'No description provided.');
+            projectCard.setAttribute('img-src', project['img-src'] || './images/default.jpg'); // Correct the data reference for img-src
+            projectCard.setAttribute('github-link', project['github-link'] || '#'); // Fix the github link attribute
+            container.appendChild(projectCard);
+        });
+        console.log(container.innerHTML);
+    }
+
+    const projectsData = [
+        {
+            "title": "Climate Pattern Prediction",
+            "body": "In this project, I worked on predicting climate patterns by participating in a Kaggle competition, where I placed in the top 25% with a score of 0.9398. I built and improved a deep learning model using U-Net with attention mechanisms to predict climate data over time and space. I tested the model's performance by comparing it to different architectures like CNNs, DenseNet, ResNet, and U-Net variations, aiming to find the most accurate model. I also used data visualization techniques to display where the model was making errors, which helped improve its performance further.",
+            "img-src": "./images/climateProject.png",
+            "github-link": "https://github.com/satvikak/CSE151B-Competition-Code"
+        },
+        {
+            "title": "Green Lens - AI Climate Argument Retrieval Engine",
+            "body": "For this project, I was part of a 4-person team that built a real-time system to search for climate science articles based on specific user queries. The system used FastAPI, Streamlit, and OpenAI's GraphRAG architecture to power the search engine. I helped develop the retrieval pipeline, using advanced techniques like BERT+FAISS, BM25, and TF-IDF to ensure the articles retrieved were relevant and fast. We achieved a relevance score of 0.78 and managed to keep query response times under 7 seconds, making the tool both effective and efficient. Additionally, I worked on automating the process of generating citations and summarizing key points from the articles to make the system more user-friendly and scalable.",
+            "img-src": "./images/paperRetrieval.png",
+            "github-link": "https://github.com/knarula2099/CSE156-Project/tree/KN-RAG-Implementation"
+        },
+        {
+            "title": "Restaurant Simulator",
+            "body": "In this project, I worked with a team of 4 to create a fully functional restaurant simulation using C++. We designed a system where users could simulate restaurant operations, including managing tables, orders, and servers. I helped implement the system using Agile development and object-oriented design principles, ensuring the software was organized and easy to scale. We used unit testing with GoogleTest to ensure all parts of the system were reliable, achieving 100% code coverage and robust functionality. I also played a key role as both a developer and the scrum master of the team. I helped coordinate meetings, encourage good communication between team members, and ensured that all the different modules of the system fit together smoothly.",
+            "img-src": "./images/restaurant.png",
+            "github-link": "https://github.com/satvikak/RestaurantSimulator"
+        }
+    ];
+
+    // Store the data in localStorage for testing
+    localStorage.setItem('projectsData', JSON.stringify(projectsData));
+
     class ProjectCard extends HTMLElement {
         constructor() {
             super();
@@ -285,17 +337,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 </style>
 
                 <div class="project-card">
-                    <h3>${this.getAttribute('title') || 'Default Title'}</h3>
+                    <h3></h3>
                     <picture>
-                        <source srcset="${(this.getAttribute('img-src') || './images/default.jpg').replace('.png', '.avif')}" type="image/avif">
-                        <source srcset="${(this.getAttribute('img-src') || './images/default.jpg').replace('.png', '.webp')}" type="image/webp">
-                        <img src="${this.getAttribute('img-src') || './images/default.jpg'}" alt="${this.getAttribute('title') || 'Project Title'} Screenshot">
+                        <source srcset="" type="image/avif">
+                        <source srcset="" type="image/webp">
+                        <img src="" alt="Project Title Screenshot">
                     </picture>
                     <details>
                         <summary>Project Description</summary>
-                        <p>${this.getAttribute('description') || 'No description provided.'}</p>
+                        <p></p>
                     </details>
-                    <a href="${this.getAttribute('github-link') || '#'}" target="_blank">
+                    <a href="" target="_blank">
                         <img src="./images/github.png" alt="GitHub">
                     </a>
                 </div>
@@ -304,8 +356,20 @@ document.addEventListener('DOMContentLoaded', () => {
             // Attach the template to the shadow DOM
             shadow.innerHTML = template;
         }
-    }
 
+        // Update the element based on attributes
+        connectedCallback() {
+            // This runs when the element is added to the DOM
+
+            // Set the title, description, and image dynamically
+            this.shadowRoot.querySelector('h3').textContent = this.getAttribute('title') || 'Default Title';
+            this.shadowRoot.querySelector('p').textContent = this.getAttribute('description') || 'No description provided.';
+            this.shadowRoot.querySelector('img').setAttribute('src', this.getAttribute('img-src') || './images/default.jpg');
+            this.shadowRoot.querySelector('a').setAttribute('href', this.getAttribute('github-link') || '#');
+            // You can also set the srcset attributes for different formats
+            this.shadowRoot.querySelector('source').setAttribute('srcset', this.getAttribute('img-src') || './images/default.jpg');
+        }
+    }
     // Define the custom element
     customElements.define('my-project', ProjectCard);
 });
