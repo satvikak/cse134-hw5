@@ -15,10 +15,14 @@
 </head>
 
 <body>
+    <!-- Theme Change Button -->
     <button id="changeTheme">☀️</button>
+
     <noscript>
         <p>Javascript is disabled!</p>
     </noscript>
+
+    <!-- Navigation -->
     <header>
         <h1>Satvi's Personal Portfolio</h1>
         <nav>
@@ -35,21 +39,95 @@
         </nav>
     </header>
 
+    <!-- Main Content Area -->
     <main id="main-content">
-        <h2><u>Projects</u></h2>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2><u>Projects</u></h2>
+            <button id="load-local">Load Local</button>
+            <button id="load-remote">Load Remote</button>
 
-        <button id="load-local">Load Local</button>
-        <button id="load-remote">Load Remote</button>
+            <section class="projects-container">
+                <!-- Dynamically Loaded Projects will appear here -->
+            </section>
+        </section>
 
-        <section class="projects-container">
+        <!-- CRUD Section (Form to Add Project) -->
+        <h2><u>CRUD</u></h2>
+        <section class="page-info">
+            <h3><i>Create a New Project:</i></h3>
+            <form id="user-create">
+                <fieldset>
+                    <legend>CREATE</legend>
+
+                    <!-- Project Title -->
+                    <label for="project-title">Project Title:</label>
+                    <input type="text" id="project-title" name="project-title" placeholder="Enter project title" required><br><br>
+
+                    <!-- Project Description -->
+                    <label for="project-description">Description:</label><br>
+                    <textarea id="project-description" name="project-description" rows="4" cols="50" placeholder="Enter project description" required></textarea><br><br>
+
+                    <!-- Image URL -->
+                    <label for="project-img-src">Image URL:</label>
+                    <input type="url" id="project-img-src" name="project-img-src" placeholder="Enter image URL" required><br><br>
+
+                    <!-- GitHub Link -->
+                    <label for="project-github-link">GitHub Link:</label>
+                    <input type="url" id="project-github-link" name="project-github-link" placeholder="Enter GitHub link" required><br><br>
+
+                    <!-- Submit Button -->
+                    <button type="submit">Add Project</button>
+                </fieldset>
+            </form>
+            <h3><i>Update an Existing Project:</i></h3>
+            <form id="user-update">
+                <fieldset>
+                    <legend>UPDATE</legend>
+
+                    <label for="project-select">Select Project to Update:</label>
+                    <select id="project-select" name="project-select" required>
+                        <option value="" disabled selected>Select a project</option>
+                    </select><br><br>
+
+                    <label for="update-project-title">Project Title:</label>
+                    <input type="text" id="update-project-title" name="update-project-title" placeholder="Enter project title" required><br><br>
+
+                    <label for="update-project-description">Description:</label><br>
+                    <textarea id="update-project-description" name="update-project-description" rows="4" cols="50" placeholder="Enter project description" required></textarea><br><br>
+
+                    <label for="update-project-img-src">Image URL:</label>
+                    <input type="url" id="update-project-img-src" name="update-project-img-src" placeholder="Enter image URL" required><br><br>
+
+                    <label for="update-project-github-link">GitHub Link:</label>
+                    <input type="url" id="update-project-github-link" name="update-project-github-link" placeholder="Enter GitHub link" required><br><br>
+
+                    <button type="submit">Update Project</button>
+                </fieldset>
+            </form>
+            <h3><i>Delete an Existing Project:</i></h3>
+            <form id="user-delete">
+                <fieldset>
+                    <legend>DELETE</legend>
+
+                    <label for="delete-project-select">Select Project to Delete:</label>
+                    <select id="delete-project-select" name="delete-project-select" required>
+                        <option value="" disabled selected>Select a project</option>
+                    </select><br><br>
+
+                    <button type="submit">Delete Project</button>
+                </fieldset>
+            </form>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         Site made with ❤️ by Satvi
     </footer>
 
+    <!-- JavaScript -->
     <script src="./script.js"></script>
-</body>
 
+    </body>
 </html>

@@ -207,13 +207,137 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    document.getElementById('load-local').addEventListener('click', loadLocalData);
-    document.getElementById('load-remote').addEventListener('click', loadRemoteData);
+    function populateDropdown(projects) {
+        const projectSelect = document.getElementById('project-select');
+        const deleteSelect = document.getElementById('delete-project-select');
+        const optionsHTML = '<option value="">Select a Project</option>';
+
+        projectSelect.innerHTML = optionsHTML;
+        deleteSelect.innerHTML = optionsHTML;  
+
+        projects.forEach((project, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = project.title || 'Untitled Project';
+            projectSelect.appendChild(option);
+
+            const deleteOption = option.cloneNode(true);
+            deleteSelect.appendChild(deleteOption);           
+        });
+    }
+
+    const createForm = document.getElementById('user-create');
+    if (createForm) {
+        createForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload on form submit
+
+            const title = document.getElementById('project-title').value;
+            const description = document.getElementById('project-description').value;
+            const imgSrc = document.getElementById('project-img-src').value;
+            const githubLink = document.getElementById('project-github-link').value;
+
+            let projects = JSON.parse(localStorage.getItem('projectsData')) || [];
+
+            // Create new project object
+            const newProject = {
+                title: title,
+                body: description,
+                'img-src': imgSrc,
+                'github-link': githubLink
+            };
+
+            projects.push(newProject);
+
+            localStorage.setItem('projectsData', JSON.stringify(projects));
+
+            displayProjects(projects);
+            populateDropdown(projects);
+
+            event.target.reset();
+        });
+    } 
+    else {
+        console.error("Form with id 'user-create' not found.");
+    }        
+
+    const updateForm = document.getElementById('user-update');
+    if (updateForm) {
+        updateForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload on form submit
+
+            const selectedIndex = document.getElementById('project-select').value;
+            if (selectedIndex === '') {
+                alert('Please select a project to update.');
+                return;
+            }
+
+            const updatedTitle = document.getElementById('update-project-title').value;
+            const updatedDescription = document.getElementById('update-project-description').value;
+            const updatedImgSrc = document.getElementById('update-project-img-src').value;
+            const updatedGithubLink = document.getElementById('update-project-github-link').value;
+
+            let projects = JSON.parse(localStorage.getItem('projectsData')) || [];
+
+            const updatedProject = {
+                title: updatedTitle,
+                body: updatedDescription,
+                'img-src': updatedImgSrc,
+                'github-link': updatedGithubLink
+            };
+
+            projects[selectedIndex] = updatedProject;
+
+            localStorage.setItem('projectsData', JSON.stringify(projects));
+
+            displayProjects(projects);
+            populateDropdown(projects);
+
+            event.target.reset();
+
+            // document.getElementById('project-select').selectedIndex = 0;
+        });
+    } 
+    else {
+        console.error("Form with id 'user-update' not found.");
+    }
+
+    const deleteForm = document.getElementById('user-delete');
+    if (deleteForm) {
+        deleteForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent page reload on form submit
+
+            const selectedIndex = document.getElementById('delete-project-select').value;
+            if (selectedIndex === '') {
+                alert('Please select a project to delete.');
+                return;
+            }
+
+            let projects = JSON.parse(localStorage.getItem('projectsData')) || [];
+
+            projects.splice(selectedIndex, 1);
+
+            localStorage.setItem('projectsData', JSON.stringify(projects));
+
+            displayProjects(projects);
+
+            populateDropdown(projects);
+        });
+    } 
+    else {
+        console.error("Form with id 'user-delete' not found.");
+    }
+
+    const loadLocalButton = document.getElementById('load-local');
+    const loadRemoteButton = document.getElementById('load-remote');
+    
+    if (loadLocalButton) loadLocalButton.addEventListener('click', loadLocalData);
+    if (loadRemoteButton) loadRemoteButton.addEventListener('click', loadRemoteData);
 
     function loadLocalData() {
         const projects = JSON.parse(localStorage.getItem('projectsData'));
         if (projects) {
             displayProjects(projects);
+            populateDropdown(projects);
         } else {
             alert('No project data found in localStorage.');
         }
@@ -223,17 +347,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const remoteURL = "https://api.jsonbin.io/v3/b/693612c1d0ea881f401986fc"
 
         fetch(remoteURL)
-            .then(response => response.json())
-            .then(jsonData => {
-                if (jsonData.record) { 
-                    displayProjects(jsonData.record);
-                } else {
-                    console.error("No record found in jsonData.");
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
+                return response.json();
+            })
+            .then(jsonData => {
+                if (jsonData.record && jsonData.record.length > 0) { 
+                    displayProjects(jsonData.record);
+                } 
             })
             .catch(error => {
                 console.error("Error fetching remote data:", error);
-            });   
+            });
     }
 
     function displayProjects(projects) {
@@ -244,8 +371,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const projectCard = document.createElement('my-project');
             projectCard.setAttribute('title', project.title || 'Default Title');
             projectCard.setAttribute('description', project.body || 'No description provided.');
-            projectCard.setAttribute('img-src', project['img-src'] || './images/default.jpg'); // Correct the data reference for img-src
-            projectCard.setAttribute('github-link', project['github-link'] || '#'); // Fix the github link attribute
+            projectCard.setAttribute('img-src', project['img-src'] || './images/default.jpg');
+            projectCard.setAttribute('github-link', project['github-link'] || '#');
             container.appendChild(projectCard);
         });
     }
@@ -270,17 +397,13 @@ document.addEventListener('DOMContentLoaded', () => {
             "github-link": "https://github.com/satvikak/RestaurantSimulator"
         }
     ];
-
-    // Store the data in localStorage for testing
     localStorage.setItem('projectsData', JSON.stringify(projectsData));
-
+    
     class ProjectCard extends HTMLElement {
         constructor() {
             super();
-            // Attach shadow DOM to isolate styles
             const shadow = this.attachShadow({ mode: 'open' });
 
-            // Define template for the project card
             const template = `
                 <style>
                     :host {
@@ -367,25 +490,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                 </div>
             `;
-
-            // Attach the template to the shadow DOM
             shadow.innerHTML = template;
         }
 
-        // Update the element based on attributes
         connectedCallback() {
-            // This runs when the element is added to the DOM
-
-            // Set the title, description, and image dynamically
             this.shadowRoot.querySelector('h3').textContent = this.getAttribute('title') || 'Default Title';
             this.shadowRoot.querySelector('p').textContent = this.getAttribute('description') || 'No description provided.';
             this.shadowRoot.querySelector('img').setAttribute('src', this.getAttribute('img-src') || './images/default.jpg');
             this.shadowRoot.querySelector('a').setAttribute('href', this.getAttribute('github-link') || '#');
-            // You can also set the srcset attributes for different formats
             this.shadowRoot.querySelector('source').setAttribute('srcset', this.getAttribute('img-src') || './images/default.jpg');
         }
     }
-    // Define the custom element
     customElements.define('my-project', ProjectCard);
 });
 
