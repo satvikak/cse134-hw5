@@ -461,19 +461,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const template = `
                 <style>
-                    :host {
-                        --back-color: #E27E7E;
-                        --main-bubble-color: #EA9E79;
-                        --main-banner-color: #7E5072;
-                        --page-title-color: #AB5A74;
-                        --subsection-title-color: #DB5079;
-                        --position-title-color: #C5365C;
-                        --subsection-description-color: #C0607F;
-                        --bubble-curvature: 2em;
-                        --font-size: 1rem;
-                        --small-font: 0.8rem;
-                        --caption-margin: 0.8em;
-                    }
 
                     .project-card h3 {
                         font-size: 1.5rem;
@@ -528,21 +515,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         padding: 0.5em;
                     }
                 </style>
-
                 <div class="project-card">
-                    <h3></h3>
-                    <picture>
-                        <source srcset="" type="image/avif">
-                        <source srcset="" type="image/webp">
-                        <img src="" alt="Project Title Screenshot">
-                    </picture>
-                    <details>
-                        <summary>Project Description</summary>
-                        <p></p>
-                    </details>
-                    <a href="" target="_blank">
-                        <img src="./images/github.png" alt="GitHub">
-                    </a>
+                        <h3></h3>
+                        <picture>
+                            <source srcset="" type="image/avif">
+                            <source srcset="" type="image/webp">
+                            <img src="" alt="Project Title Screenshot">
+                        </picture>
+                        <details>
+                            <summary>Project Description</summary>
+                            <p></p>
+                        </details>
+                        <a href="" target="_blank">
+                            <img src="./images/github.png" alt="GitHub">
+                        </a>
                 </div>
             `;
             shadow.innerHTML = template;
@@ -627,20 +613,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const shadow = this.attachShadow({ mode: 'open' });
 
             // Create an internal <style> element to inject the global CSS variables
-            const style = document.createElement('style');
-            style.textContent = `
-                footer {
-                    text-align: center;
-                    font-size: var(--small-font, 0.9rem);
-                    color: black; 
-                    padding: 1rem 0 0 0;
-                }
-            `;
-            shadow.appendChild(style);
-
-            // Create the footer structure
             const footer = document.createElement('footer');
             footer.innerHTML = `
+                <style>
+                    footer {
+                        text-align: center;
+                        font-size: var(--small-font, 0.9rem);
+                        color: white; 
+                        padding: 1rem 0 0 0;
+                    }
+                </style>
                 Site made with ❤️ by Satvi
             `;
             shadow.appendChild(footer);

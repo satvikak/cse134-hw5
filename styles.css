@@ -426,7 +426,7 @@ footer {
     }
 
     my-project {
-        max-width: 100%; /* One card per row on small screens */
+        max-width: 100%; 
     }
 
     iframe {
@@ -480,6 +480,13 @@ body.darkMode h1 { background-color: var(--main-banner-color); }
 body.darkMode h2 { background-color: var(--page-title-color); }
 body.darkMode h3 { background-color: var(--subsection-title-color); }
 body.darkMode h4 { background-color: var(--position-title-color); }
+
+body.darkMode my-project {
+    background-color: var(--main-bubble-color); /* Keeps the dark mode background */
+    color: var(--font-color);  /* Text color for dark mode */
+    box-shadow: 0 0 6px var(--neon-glow);  /* Add a glowing shadow effect */
+    transition: all 0.3s ease;
+}
 
 body.darkMode nav a {
     background-color: var(--main-bubble-color);
