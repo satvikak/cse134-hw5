@@ -208,16 +208,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.getElementById('load-local').addEventListener('click', loadLocalData);
+    document.getElementById('load-remote').addEventListener('click', loadRemoteData);
 
     function loadLocalData() {
-        console.log('Loading local data...');
         const projects = JSON.parse(localStorage.getItem('projectsData'));
-        console.log(projects); // Log to check if the data is correct before passing to displayProjects()
         if (projects) {
             displayProjects(projects);
         } else {
             alert('No project data found in localStorage.');
         }
+    }
+
+    function loadRemoteData() {
+        const remoteURL = "https://api.jsonbin.io/v3/b/693612c1d0ea881f401986fc"
+
+        fetch(remoteURL)
+            .then(response => response.json())
+            .then(jsonData => {
+                if (jsonData.record) { 
+                    displayProjects(jsonData.record);
+                } else {
+                    console.error("No record found in jsonData.");
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching remote data:", error);
+            });   
     }
 
     function displayProjects(projects) {
@@ -232,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
             projectCard.setAttribute('github-link', project['github-link'] || '#'); // Fix the github link attribute
             container.appendChild(projectCard);
         });
-        console.log(container.innerHTML);
     }
 
     const projectsData = [
