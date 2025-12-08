@@ -39,20 +39,16 @@
         </nav>
     </header>
 
-    <!-- Main Content Area -->
     <main id="main-content">
-        <!-- Projects Section -->
         <section id="projects">
             <h2><u>Projects</u></h2>
             <button id="load-local">Load Local</button>
             <button id="load-remote">Load Remote</button>
 
             <section class="projects-container">
-                <!-- Dynamically Loaded Projects will appear here -->
             </section>
         </section>
 
-        <!-- CRUD Section (Form to Add Project) -->
         <h2><u>CRUD</u></h2>
         <section class="page-info">
             <h3><i>Create a New Project:</i></h3>
@@ -60,26 +56,24 @@
                 <fieldset>
                     <legend>CREATE</legend>
 
-                    <!-- Project Title -->
                     <label for="project-title">Project Title:</label>
                     <input type="text" id="project-title" name="project-title" placeholder="Enter project title" required><br><br>
 
-                    <!-- Project Description -->
                     <label for="project-description">Description:</label><br>
                     <textarea id="project-description" name="project-description" rows="4" cols="50" placeholder="Enter project description" required></textarea><br><br>
 
-                    <!-- Image URL -->
                     <label for="project-img-src">Image URL:</label>
                     <input type="url" id="project-img-src" name="project-img-src" placeholder="Enter image URL" required><br><br>
 
-                    <!-- GitHub Link -->
                     <label for="project-github-link">GitHub Link:</label>
                     <input type="url" id="project-github-link" name="project-github-link" placeholder="Enter GitHub link" required><br><br>
 
-                    <!-- Submit Button -->
                     <button type="submit">Add Project</button>
                 </fieldset>
             </form>
+        </section>
+
+        <section class="page-info">
             <h3><i>Update an Existing Project:</i></h3>
             <form id="user-update">
                 <fieldset>
@@ -105,6 +99,9 @@
                     <button type="submit">Update Project</button>
                 </fieldset>
             </form>
+        </section>
+
+        <section class="page-info">
             <h3><i>Delete an Existing Project:</i></h3>
             <form id="user-delete">
                 <fieldset>
@@ -121,12 +118,10 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         Site made with ❤️ by Satvi
     </footer>
 
-    <!-- JavaScript -->
     <script src="./script.js"></script>
 
     </body>
