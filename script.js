@@ -207,6 +207,61 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const factBtn = document.getElementById('randomFact');
+    const factDisplay = document.getElementById('random-fact-display');
+    const diceWindow = document.getElementById('dice-window');
+    const dice = document.getElementById('dice');
+    const closeBtn = document.getElementById('close-dice-window');  // Correct variable name
+
+    const randomFacts = [
+        "I practiced playing the cello for 7 years!",
+        "I actually went to UC Riverside before transferring to UC San Diego",
+        "I have never had an internship!",
+        "I actually learned that I wanted to become an ML Engineer because of Research!",
+        "I am from SoCal!",
+        "I have lived in the same city for my whole life!",
+        "My first language was Telugu!",
+        "Most of my immediate family lives in India!",
+        "My favorite color is red!",
+        "My favorite candy is Dark Chocolate!",
+        "My favorite social media is YouTube!",
+        "I'll be tutoring for CSE135 next quarter!",
+        "I will be spending the next year getting my Masters!",
+        "I don't know how to skateboard!",
+        "I love doing arts and crafts (even when I'm bad at it)!",
+        "I like pineapples on Pizza!"
+    ];
+
+    function getRandomFact() {
+        const randomIndex = Math.floor(Math.random() * randomFacts.length);
+        return randomFacts[randomIndex];
+    }
+
+    function displayFact() {
+        const randomFact = getRandomFact();
+        factDisplay.textContent = randomFact;
+        factDisplay.style.display = 'block';
+    }
+
+    factBtn.addEventListener('click', () => {
+        diceWindow.style.display = 'flex';
+
+        dice.style.animation = 'spin 2s ease-out forwards';
+
+        factDisplay.textContent = '';
+
+        setTimeout(() => {
+            displayFact();
+        }, 2000); 
+
+        const randomFact = getRandomFact();
+        localStorage.setItem('myFact', randomFact);
+    });
+
+    closeBtn.addEventListener('click', () => {
+        diceWindow.style.display = 'none';
+    });
+
     function populateDropdown(projects) {
         const projectSelect = document.getElementById('project-select');
         const deleteSelect = document.getElementById('delete-project-select');
