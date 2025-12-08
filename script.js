@@ -548,10 +548,8 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor() {
             super();
 
-            // Attach shadow DOM to the component
             const shadow = this.attachShadow({ mode: 'open' });
 
-            // Create the HTML structure for the header
             const header = document.createElement('header');
             header.innerHTML = `
                 <style>
@@ -601,17 +599,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Register the custom element
     customElements.define('my-header', MyHeader);
 
     class MyFooter extends HTMLElement {
         constructor() {
             super();
 
-            // Attach shadow DOM to the component
             const shadow = this.attachShadow({ mode: 'open' });
 
-            // Create an internal <style> element to inject the global CSS variables
             const footer = document.createElement('footer');
             footer.innerHTML = `
                 <style>
@@ -628,7 +623,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Register the custom element
     customElements.define('my-footer', MyFooter);
 
 });
