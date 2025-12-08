@@ -557,6 +557,99 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     customElements.define('my-project', ProjectCard);
+
+    class MyHeader extends HTMLElement {
+        constructor() {
+            super();
+
+            // Attach shadow DOM to the component
+            const shadow = this.attachShadow({ mode: 'open' });
+
+            // Create the HTML structure for the header
+            const header = document.createElement('header');
+            header.innerHTML = `
+                <style>
+                    h1 {
+                        background-color: var(--main-banner-color, #7E5072); 
+                        padding: 1.5rem;
+                        text-align: center;
+                    }
+
+                    nav {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 0.5rem;
+                        justify-content: center;
+                    }
+
+                    nav a {
+                        display: inline-block;
+                        background-color: var(--main-bubble-color, #EA9E79);
+                        color: white;
+                        padding: 0.6em 1.2em;
+                        border-radius: var(--bubble-curvature, 1rem); 
+                        /* Idea utilized from here: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions" */
+                        transition: all 0.5s ease-out;
+                    }
+
+                    nav a:hover {
+                        background-color: var(--position-title-color, #C5365C);
+                        /* Idea utilized from here: "https://stackoverflow.com/questions/31860157/css3-transform-translate-on-hover-with-transition" */
+                        transform: translateY(2px);
+                    }
+                </style>
+                <h1>Satvi's Personal Portfolio</h1>
+                <nav>
+                    <a href="./index.html">Home</a>
+                    <a href="./about.html">About Me</a>
+                    <a href="./experience.html">Experience</a>
+                    <a href="./projects.html">Projects</a>
+                    <a href="./resume.html">Resume</a>
+                    <a href="./craftBlog.html">Craft Blog</a>
+                    <a href="./photography.html">Photography</a>
+                    <a href="./contact.html">Contact Me</a>
+                    <a href="./form-no-js.html">No JS Contact Form</a>
+                    <a href="./form-with-js.html">JS Contact Form</a>
+                </nav>
+            `;
+            shadow.appendChild(header);
+        }
+    }
+
+    // Register the custom element
+    customElements.define('my-header', MyHeader);
+
+    class MyFooter extends HTMLElement {
+        constructor() {
+            super();
+
+            // Attach shadow DOM to the component
+            const shadow = this.attachShadow({ mode: 'open' });
+
+            // Create an internal <style> element to inject the global CSS variables
+            const style = document.createElement('style');
+            style.textContent = `
+                footer {
+                    text-align: center;
+                    font-size: var(--small-font, 0.9rem);
+                    color: black; 
+                    padding: 1rem 0 0 0;
+                }
+            `;
+            shadow.appendChild(style);
+
+            // Create the footer structure
+            const footer = document.createElement('footer');
+            footer.innerHTML = `
+                Site made with ❤️ by Satvi
+            `;
+            shadow.appendChild(footer);
+        }
+    }
+
+    // Register the custom element
+    customElements.define('my-footer', MyFooter);
+
 });
 
 
@@ -593,4 +686,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
