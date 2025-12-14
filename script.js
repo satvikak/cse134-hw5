@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "github-link": "https://github.com/satvikak/RestaurantSimulator"
         }
     ];
-    localStorage.setItem('projectsData', JSON.stringify(projectsData));
+    localStorage.getItem('projectsData') || localStorage.setItem('projectsData', JSON.stringify(projectsData));
     
     class ProjectCard extends HTMLElement {
         constructor() {
